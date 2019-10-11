@@ -1,0 +1,58 @@
+{
+  "name": "template-svelte3-asr-business",
+  "version": "0.0.0",
+  "size-limit": [
+    {
+      "webpack": false,
+      "path": "public/bundle.js",
+      "limit": "300ms"
+    }
+  ],
+  "devDependencies": {
+    "cheap-watch": "^1.0.2",
+    "esm": "^3.2.25",
+    "glob": "^7.1.4",
+    "glob-module-file": "^3.0.0",
+    "mkdirp": "^0.5.1",
+    "mustache": "^3.1.0",
+    "ncp": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^2.7.1",
+    "rollup": "^1.23.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-execute": "^1.1.1",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-livereload": "^1.0.4",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-visualizer": "^2.6.0",
+    "sirv-cli": "^0.4.4",
+    "size-limit": "^2.1.6",
+    "svelte": "^3.12.1"
+  },
+  "dependencies": {
+    "abstract-state-router": "^6.1.0",
+    "mannish": "^4.0.1",
+    "svelte-state-renderer": "^3.0.1"
+  },
+  "scripts": {
+    "clean": "rimraf public && mkdirp public",
+    "build": "npm run clean && run-p build:* && run-p rollup:*",
+    "build:routes": "glob-module-file --pathPrefix='../../../' --pattern='src/node_modules/app/route/**/*.js' --format=es --ignore='**/one.js' --outputPath='src/node_modules/app/globbed-routes.js'",
+    "build:assets": "rimraf public/asset && ncp ./asset ./public/asset && node -r esm build-serviceworker-lists.js",
+    "build:html": "node -r esm ./build-html.js",
+    "build:manifest": "node -r esm ./build-manifest.js",
+    "rollup:webapp": "rollup --config=rollup-webapp.config.js",
+    "rollup:serviceworker": "rollup --config=rollup-serviceworker.config.js",
+    "dev": "npm run clean && run-p build:* && run-p start:dev autobuild:*",
+    "autobuild:watch": "node -r esm watch.js",
+    "autobuild:webapp": "rollup --config=rollup-webapp.config.js -w",
+    "autobuild:serviceworker": "rollup --config=rollup-serviceworker.config.js -w",
+    "start": "sirv public --single",
+    "start:dev": "sirv public --single --dev",
+    "test": "run-p test:*",
+    "test:unit": "",
+    "test:size": "npm run build && size-limit"
+  }
+}
