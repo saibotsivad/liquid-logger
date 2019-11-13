@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="utf8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>My Webapp</title>
+
+	<!-- Icons and webapp theme coloring across all platforms. -->
+	<link rel="apple-touch-icon" sizes="180x180" href="asset/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="asset/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="asset/favicon/favicon-16x16.png">
+	<link rel="manifest" href="manifest.webmanifest">
+	<link rel="mask-icon" href="asset/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="asset/favicon/favicon.ico">
+	<meta name="apple-mobile-web-app-title" content="My Webapp">
+	<meta name="application-name" content="My Webapp">
+	<meta name="msapplication-TileColor" content="#00aba9">
+	<meta name="msapplication-config" content="browserconfig.xml">
+	<meta name="theme-color" content="#ff3e00">
+
+	<link rel="stylesheet" href="asset/global.css">
+	<link rel="stylesheet" href="bundle.css">
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@saibotsivad">
+	<meta name="twitter:creator" content="@saibotsivad">
+	<meta name="twitter:image" content="http://localhost:5000/asset/twitter-card.png">
+
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('serviceworker.js')
+		}
+	</script>
+
+	<script defer src="bundle.js"></script>
+</head>
+
+<body>
+</body>
+
+</html>

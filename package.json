@@ -56,6 +56,7 @@
     "build:html": "node -r esm ./build-html.js",
     "build:manifest": "node -r esm ./build-manifest.js",
     "build:css": "npm-run-all css:lint css:compile css:prefix css:minify",
+    "postbuild": "rimraf docs && cp -R public docs/",
     "css:lint": "stylelint \"style/**/*.scss\" --cache --cache-location .cache/.stylelintcache",
     "css:compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 style/bootstrap.scss public/bootstrap.css",
     "css:prefix": "postcss --config postcss.config.js --replace \"public/*.css\" \"!public/*.min.css\"",

@@ -1,0 +1,23 @@
+{
+  "cacheableFiles": [
+    "/asset/favicon/android-chrome-192x192.png",
+    "/asset/favicon/android-chrome-512x512.png",
+    "/asset/favicon/apple-touch-icon.png",
+    "/asset/favicon/favicon-16x16.png",
+    "/asset/favicon/favicon-32x32.png",
+    "/asset/favicon/favicon.ico",
+    "/asset/favicon/mstile-150x150.png",
+    "/asset/favicon/safari-pinned-tab.svg",
+    "/asset/global.css",
+    "/asset/twitter-card.png",
+    "/bundle.css",
+    "/bundle.css.map",
+    "/bundle.js",
+    "/bundle.js.map",
+    "/serviceworker-lists.json",
+    "/serviceworker.js",
+    "/serviceworker.js.map"
+  ],
+  "cacheName": "cacheSvelteAsrBusinessApp1573623268175",
+  "prefetchCacheableUrls": []
+}

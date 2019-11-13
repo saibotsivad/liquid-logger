@@ -1,0 +1,18 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../src/node_modules/app/route/app/App.svelte",
+    "../src/node_modules/app/route/app/configure/container/Container.svelte",
+    "../src/node_modules/app/element/Card.svelte",
+    "../src/node_modules/app/element/Container.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\nexport let asr\n</script>\n\n<style>\nul {\n\tlist-style: none;\n\tbackground-color: var(--color-gray-300);\n\tmargin: 0;\n\tpadding: 1rem;\n}\nli {\n\tdisplay: inline-block;\n}\n</style>\n\n<ul>\n\t<li>\n\t\t<a href=\"{asr.makePath('app.dashboard')}\">\n\t\t\tDashboard\n\t\t</a>\n\t</li>\n\t<li>\n\t\t<a href=\"{asr.makePath('app.history')}\">\n\t\t\tHistory\n\t\t</a>\n\t</li>\n\t<li>\n\t\t<a href=\"{asr.makePath('app.configure')}\">\n\t\t\tConfigure\n\t\t</a>\n\t</li>\n</ul>\n\n<uiView />\n",
+    "<script>\nimport Card from 'app/element/Card.svelte'\n\nexport let asr = {}\nexport let containerList = []\n</script>\n\n<style>\nimg {\n\tmax-width: 100%;\n\tmax-height: 5rem;\n}\n</style>\n\n<h3>\n\tContainers\n</h3>\n\n{#each containerList as container, index (container.id)}\n\t<Card>\n\t\t<div slot=\"header\">\n\t\t\t{container.name}\n\t\t\t-\n\t\t\t{container.volume}oz\n\t\t</div>\n\t\t<div slot=\"body\">\n\t\t\t{#if container.image}\n\t\t\t\t<img src={container.image} alt=\"Image of {container.name} container.\">\n\t\t\t{/if}\n\t\t\t<p>\n\t\t\t\t<a href=\"{ asr.makePath('app.configure.container.edit', { id: container.id }) }\">\n\t\t\t\t\tEdit Container\n\t\t\t\t</a>\n\t\t\t</p>\n\t\t</div>\n\t</Card>\n{/each}\n",
+    "<style>\n.card {\n\tborder: 1px solid var(--brand-color-light);\n\tborder-radius: var(--border-radius);\n}\n\n.card :global([slot=\"header\"]) {\n\tbackground-color: var(--brand-color-light);\n\tpadding: var(--spacing-default);\n\tborder-radius: var(--border-radius) var(--border-radius) 0 0;\n}\n.card :global([slot=\"header\"] .card-title) {\n\tmargin-bottom: 0;\n}\n\n.card :global([slot=\"body\"]) {\n\tpadding: var(--spacing-default);\n}\n\n.card :global([slot=\"footer\"]) {\n\tbackground-color: var(--brand-color-light);\n\tpadding: var(--spacing-default);\n\tborder-radius: 0 0 var(--border-radius) var(--border-radius);\n}\n.card :global([slot=\"footer\"] .card-title) {\n\tmargin-bottom: 0;\n}\n</style>\n\n<div class=\"card\">\n\t<slot name=\"header\"></slot>\n\t<slot name=\"body\"></slot>\n\t<slot name=\"footer\"></slot>\n</div>\n",
+    "<style>\ndiv {\n\tmax-width: 100%;\n\tpadding: 1rem;\n}\n</style>\n\n<div>\n\t<slot>\n\t\tEmpty container.\n\t</slot>\n</div>\n"
+  ],
+  "names": [],
+  "mappings": "AAKA,EAAE,eAAC,CAAC,AACH,UAAU,CAAE,IAAI,CAChB,gBAAgB,CAAE,IAAI,gBAAgB,CAAC,CACvC,MAAM,CAAE,CAAC,CACT,OAAO,CAAE,IAAI,AACd,CAAC,AACD,EAAE,eAAC,CAAC,AACH,OAAO,CAAE,YAAY,AACtB,CAAC;ACLD,GAAG,cAAC,CAAC,AACJ,SAAS,CAAE,IAAI,CACf,UAAU,CAAE,IAAI,AACjB,CAAC;ACVD,KAAK,eAAC,CAAC,AACN,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,IAAI,mBAAmB,CAAC,CAC1C,aAAa,CAAE,IAAI,eAAe,CAAC,AACpC,CAAC,AAED,oBAAK,CAAC,AAAQ,eAAe,AAAE,CAAC,AAC/B,gBAAgB,CAAE,IAAI,mBAAmB,CAAC,CAC1C,OAAO,CAAE,IAAI,iBAAiB,CAAC,CAC/B,aAAa,CAAE,IAAI,eAAe,CAAC,CAAC,IAAI,eAAe,CAAC,CAAC,CAAC,CAAC,CAAC,AAC7D,CAAC,AACD,oBAAK,CAAC,AAAQ,2BAA2B,AAAE,CAAC,AAC3C,aAAa,CAAE,CAAC,AACjB,CAAC,AAED,oBAAK,CAAC,AAAQ,aAAa,AAAE,CAAC,AAC7B,OAAO,CAAE,IAAI,iBAAiB,CAAC,AAChC,CAAC,AAED,oBAAK,CAAC,AAAQ,eAAe,AAAE,CAAC,AAC/B,gBAAgB,CAAE,IAAI,mBAAmB,CAAC,CAC1C,OAAO,CAAE,IAAI,iBAAiB,CAAC,CAC/B,aAAa,CAAE,CAAC,CAAC,CAAC,CAAC,IAAI,eAAe,CAAC,CAAC,IAAI,eAAe,CAAC,AAC7D,CAAC,AACD,oBAAK,CAAC,AAAQ,2BAA2B,AAAE,CAAC,AAC3C,aAAa,CAAE,CAAC,AACjB,CAAC;ACzBD,GAAG,cAAC,CAAC,AACJ,SAAS,CAAE,IAAI,CACf,OAAO,CAAE,IAAI,AACd,CAAC"
+}
